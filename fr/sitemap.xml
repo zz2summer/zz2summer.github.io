@@ -2,42 +2,42 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://github.com/fr/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://zz2summer.github.io/fr/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://github.com/en/categories/"
+                        href="https://zz2summer.github.io/en/categories/"
                         /><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://github.com/categories/"
+                        href="https://zz2summer.github.io/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="fr"
-                    href="https://github.com/fr/categories/"
+                    href="https://zz2summer.github.io/fr/categories/"
                     /></url><url>
-            <loc>https://github.com/fr/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://zz2summer.github.io/fr/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://github.com/en/"
+                        href="https://zz2summer.github.io/en/"
                         /><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://github.com/"
+                        href="https://zz2summer.github.io/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="fr"
-                    href="https://github.com/fr/"
+                    href="https://zz2summer.github.io/fr/"
                     /></url><url>
-            <loc>https://github.com/fr/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://zz2summer.github.io/fr/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://github.com/en/tags/"
+                        href="https://zz2summer.github.io/en/tags/"
                         /><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://github.com/tags/"
+                        href="https://zz2summer.github.io/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="fr"
-                    href="https://github.com/fr/tags/"
+                    href="https://zz2summer.github.io/fr/tags/"
                     /></url></urlset>

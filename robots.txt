@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://github.com/en/sitemap.xml
+Sitemap: https://zz2summer.github.io/en/sitemap.xml
