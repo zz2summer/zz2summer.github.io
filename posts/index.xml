@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>渣渣的夏天</title>
-        <link>https://zz2summer.github.io/</link>
-        <description>渣渣的夏天的博客</description>
+        <title>所有文章 - 渣渣的夏天</title>
+        <link>https://zz2summer.github.io/posts/</link>
+        <description>所有文章 | 渣渣的夏天</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>summer2zz@163.com (渣渣的夏天)</managingEditor>
-            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 27 Mar 2021 21:45:46 &#43;0800</lastBuildDate>
-            <atom:link href="https://zz2summer.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 27 Mar 2021 21:45:46 &#43;0800</lastBuildDate><atom:link href="https://zz2summer.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Test2</title>
     <link>https://zz2summer.github.io/test2/</link>
     <pubDate>Sat, 27 Mar 2021 21:45:46 &#43;0800</pubDate>
