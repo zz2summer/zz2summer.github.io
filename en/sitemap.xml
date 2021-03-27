@@ -15,19 +15,6 @@
                     hreflang="en"
                     href="https://zz2summer.github.io/en/categories/"
                     /></url><url>
-            <loc>https://zz2summer.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://zz2summer.github.io/"
-                        /><xhtml:link
-                        rel="alternate"
-                        hreflang="fr"
-                        href="https://zz2summer.github.io/fr/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://zz2summer.github.io/en/"
-                    /></url><url>
             <loc>https://zz2summer.github.io/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -40,4 +27,17 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://zz2summer.github.io/en/tags/"
+                    /></url><url>
+            <loc>https://zz2summer.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://zz2summer.github.io/"
+                        /><xhtml:link
+                        rel="alternate"
+                        hreflang="fr"
+                        href="https://zz2summer.github.io/fr/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://zz2summer.github.io/en/"
                     /></url></urlset>
