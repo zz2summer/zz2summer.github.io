@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Github Pages &#43; Hugo 搭建个人博客 - 渣渣的夏天</title><meta name="Description" content="利用 Hugo &#43; Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。"><meta property="og:title" content="Github Pages &#43; Hugo 搭建个人博客" />
+<meta property="og:description" content="利用 Hugo &#43; Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-28T13:14:16&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-28T13:14:16&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Github Pages &#43; Hugo 搭建个人博客"/>
+<meta name="twitter:description" content="利用 Hugo &#43; Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Github Pages + Hugo 搭建个人博客",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zz2summer.github.io\/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hugo, Github, 个人博客","wordcount":  4833 ,
+        "url": "https:\/\/zz2summer.github.io\/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/","datePublished": "2021-03-28T13:14:16+08:00","dateModified": "2021-03-28T13:14:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "渣渣的夏天"
+            },"description": "利用 Hugo + Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Github Pages &#43; Hugo 搭建个人博客</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tools/"><i class="far fa-folder fa-fw"></i>Tools</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-28 13:14:16">2021-03-28 13:14:16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4833 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#零效果">零、效果</a></li>
+    <li><a href="#一创建-github-库">一、创建 Github 库</a></li>
+    <li><a href="#二安装-hugo-和-git">二、安装 Hugo 和 Git</a></li>
+    <li><a href="#三新建-hugo-网站">三、新建 Hugo 网站</a></li>
+    <li><a href="#四选择-hugo-主题">四、选择 Hugo 主题</a></li>
+    <li><a href="#五新建文章">五、新建文章</a></li>
+    <li><a href="#六部署到-github">六、部署到 Github</a></li>
+    <li><a href="#七日常操作">七、日常操作</a>
+      <ul>
+        <li><a href="#1-新建文章">1. 新建文章</a></li>
+        <li><a href="#2-修改文章">2. 修改文章</a></li>
+        <li><a href="#3-删除文章">3. 删除文章</a></li>
+        <li><a href="#4添加图片">4.添加图片</a></li>
+        <li><a href="#5-图片加水印">5. 图片加水印</a></li>
+      </ul>
+    </li>
+    <li><a href="#八细节优化">八、细节优化</a>
+      <ul>
+        <li><a href="#1谷歌分析的配置">1.谷歌分析的配置</a></li>
+        <li><a href="#2-添加访问计数">2. 添加访问计数</a></li>
+        <li><a href="#3部署脚本">3.部署脚本</a></li>
+        <li><a href="#4-添加网站运行时间">4. 添加网站运行时间</a></li>
+        <li><a href="#5-图片放大功能">5. 图片放大功能</a></li>
+      </ul>
+    </li>
+    <li><a href="#九总结">九、总结</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>利用 Hugo + Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。</p>
+<h2 id="零效果">零、效果</h2>
+<p>本次配置最终效果图：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328123814653.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328123814653.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328123814653.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328123814653.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210328123814653.png"
+        title="image-20210328123814653" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328125127899.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328125127899.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328125127899.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210328125127899.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210328125127899.png"
+        title="image-20210328125127899" /></p>
+<p>快速搭建方式，直接下载修改后的模板改也是可以的：https://github.com/zz2summer/blog-hugo-theme-LoveIt</p>
+<p>完成步骤一、二、三，然后下载上述文件到 blog 目录下就可以跳过第四步了。</p>
+<h2 id="一创建-github-库">一、创建 Github 库</h2>
+<ol>
+<li>
+<p>打开 Github ，新建一个库。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160452279.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160452279.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160452279.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160452279.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210324160452279.png"
+        title="image-20210324160452279" /></p>
+</li>
+<li>
+<p>输入项目名，要与 Github 用户名一致。比如我的是 zz2summer，那么输入的 Repository name 就是 <code>zz2summer.github.io</code>，README 也一并勾选上。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160630054.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160630054.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160630054.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210324160630054.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210324160630054.png"
+        title="image-20210324160630054" /></p>
+</li>
+</ol>
+<h2 id="二安装-hugo-和-git">二、安装 Hugo 和 Git</h2>
+<ol>
+<li>
+<p>查阅 Hugo 安装指南：<a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener noreffer">Install Hugo | Hugo</a>，找到对应系统的安装操作。</p>
+<p>基本上都是使用各个包工具安装，本人 Win10，比较嫌麻烦就直接下载使用。</p>
+</li>
+<li>
+<p>打开 Github 中的 <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener noreffer">Hugo</a> 库，打开右侧的 Realeases，下载最新的版本，本次下载为：<a href="https://github.com/gohugoio/hugo/releases/download/v0.82.0/hugo_extended_0.82.0_Windows-64bit.zip" target="_blank" rel="noopener noreffer">hugo_extended_0.82.0_Windows-64bit.zip</a></p>
+<p>下载 extened 版本是因为有些主题的需要利用进行 SCSS/SASS 构建，如果下普通版就可能会报错显示： you need the extended version to build SCSS/SASS</p>
+</li>
+<li>
+<p>解压后，将其中的 <code>hugo.exe</code> 放到指定的安装目录，比如 <code>D:\softwares\Hugo\bin</code>，然后将该目录添加到系统环境变量（win+R → sysdm.cpl → 高级 → 环境变量 → 系统变量 Path）的 <code>Path</code> 下。</p>
+</li>
+<li>
+<p>打开命令行，输入 <code>hugo version</code>，显示版本号即为安装成功</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326094454694.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326094454694.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326094454694.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326094454694.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326094454694.png"
+        title="image-20210326094454694" /></p>
+</li>
+<li>
+<p>本地下载 <a href="https://git-scm.com/" target="_blank" rel="noopener noreffer">Git</a> ，Win10直接下载 exe ，点击下一步就好了。</p>
+</li>
+</ol>
+<h2 id="三新建-hugo-网站">三、新建 Hugo 网站</h2>
+<ol>
+<li>
+<p>新建一个目录，用于存放 Hugo 网站的文件，比如：H:\HugoWebsite</p>
+</li>
+<li>
+<p>打开命令行，切换到该目录，执行命令新建一个 Hugo 网站</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span> <span class="nx">blog</span> <span class="nx">是网站文件夹名</span>
+<span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">site</span> <span class="nx">blog</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326125559328.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326125559328.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326125559328.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326125559328.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326125559328.png"
+        title="image-20210326125559328" /></p>
+</li>
+</ol>
+<h2 id="四选择-hugo-主题">四、选择 Hugo 主题</h2>
+<ol>
+<li>
+<p>打开 hugo theme 的网站，选择合适的主题，以<strong>Tranquilpeak</strong> 举例。</p>
+<p>Hugo Themes: <a href="https://themes.gohugo.io" target="_blank" rel="noopener noreffer">https://themes.gohugo.io</a></p>
+</li>
+<li>
+<p>将选中的主题下载到本地</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 进入网站目录 blog</span>
+<span class="nb">cd</span> blog
+<span class="c1"># 进入 themes 目录，一般默认有，如果没有自行创建：mkdir -p themes</span>
+<span class="nb">cd</span> themes
+<span class="c1"># 下载主题到 tranquilpeak 文件夹下</span>
+git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git tranquilpeak
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326145717135.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326145717135.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326145717135.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326145717135.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326145717135.png"
+        title="image-20210326145717135" /></p>
+</li>
+<li>
+<p>此处建议选择的这个主题相较适合第一次尝试，配置文件比较详细明了。待熟悉后，可以自行选择主题。</p>
+<p>Hugo主题库：https://themes.gohugo.io，个人推荐主题：https://github.com/dillonzq/LoveIt.git</p>
+</li>
+<li>
+<p>在 Hugo 网站的根目录下（上文提及的 HugoWebsite）配置 config.toml</p>
+<p>详细配置参考：<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md" target="_blank" rel="noopener noreffer">hugo-tranquilpeak-theme/user.md at master · kakawait/hugo-tranquilpeak-theme</a></p>
+</li>
+<li>
+<p>当前工作目录：H:\HugoWebsite\blog，备份 config.toml 原文件，然后将 themes/tranquilpeak/exampleSite/config.toml 复制过来覆盖原文件，打开 config.toml 阅读并修改配置</p>
+<p>简单讲就是利用已经配置好的主题配置文件进行修改。</p>
+</li>
+</ol>
+<h2 id="五新建文章">五、新建文章</h2>
+<ol>
+<li>
+<p>进入网站文件夹根目录：H:\HugoWebsite\blog，鼠标右键选择 Git Bash Here</p>
+</li>
+<li>
+<p>新建文章：first-post.md，**注意区分主题的要求，有些主题新建文章的目录是 posts **</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo new post/first-post.md
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>编辑文章内容，保存。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154357858.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154357858.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154357858.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154357858.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326154357858.png"
+        title="image-20210326154357858" /></p>
+</li>
+<li>
+<p>启动 Hogo server</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo server -D
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154539466.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154539466.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154539466.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154539466.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326154539466.png"
+        title="image-20210326154539466" /></p>
+</li>
+<li>
+<p>打开网址 http://localhost:1313/ 可以进行预览</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154955654.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154955654.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154955654.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326154955654.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326154955654.png"
+        title="image-20210326154955654" /></p>
+<p>如果发现预览效果不满意，可以 编辑 config.toml 文件</p>
+</li>
+</ol>
+<h2 id="六部署到-github">六、部署到 Github</h2>
+<ol>
+<li>
+<p>构建 Hugo 网站</p>
+<p>在 Hugo 网站文件夹的根目录（H:\HugoWebsite\blog）下执行 <code>hugo</code> 命令构建</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155148724.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155148724.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155148724.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155148724.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326155148724.png"
+        title="image-20210326155148724" /></p>
+<p>Hugo 会将构建的网站内容默认保存至网站根目录下的 public/ 文件夹下。</p>
+</li>
+<li>
+<p>将网站文件夹与 GitHub 建立联系**（仅第一次运行需要）**</p>
+<ul>
+<li>
+<p>进入 H:\HugoWebsite\blog\public 目录，初始化 Git 库</p>
+<p>生成的 HTML 文件保存在 &ldquo;public&rdquo; 目录中，&ldquo;public&rdquo; 文件夹会被转换为 Git 库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git init
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155454419.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155454419.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155454419.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326155454419.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326155454419.png"
+        title="image-20210326155454419" /></p>
+</li>
+<li>
+<p>将 Git 本地库关联至远程库</p>
+<p>在 H:\HugoWebsite\blog\public 目录下，为 Git 本地库添加远程库，&ldquo;<a href="mailto:git@github.com">git@github.com</a>:your-github-id/your-github-id.github.io.git&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git remote add origin git@github.com:zz2summer/zz2summer.github.io.git
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>提交修改</p>
+<p>在 <code>H:\HugoWebsite\blog\public</code> 目录下，通过如下命令提交：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看当前修改状态</span>
+git status
+<span class="c1"># 添加修改过得文件，  . 表示所有，也可以指定文件</span>
+git add .
+<span class="c1"># &#34;&#34;里面的内容就是提交内容的说明信息</span>
+git commit -m <span class="s2">&#34;first commit&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>提交修改至远程库</p>
+<p>在 <code>H:\HugoWebsite\blog\public</code> 目录下，通过如下命令提交：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>然后如果按照博客顺序操作，第一次应该失败的。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326161159887.png"
+        data-srcset="/GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326161159887.png, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326161159887.png 1.5x, /GithubPages&#43;Hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2/image-20210326161159887.png 2x"
+        data-sizes="auto"
+        alt="/GithubPages&#43;Hugo搭建个人博客/image-20210326161159887.png"
+        title="image-20210326161159887" /></p>
+<p>因为本地的 git 库和远程的库并不是一致的，需要进行一次 pull 操作才能继续 push。</p>
+<p>第一种解决办法就是加参数 -f ，强制推送，但是这样很危险，会导致其他的更新提交失败，也就是说原来该库下所有文件都会被删除掉，只剩下本次提交的文件了。日常不建议这么操作，但是其实本次第一次是可以的，因为当前库下没有还没有有效文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push -u -f origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>第二种方案为：先把除 .git 文件夹外的所有文件复制到其他目录备份，然后 git pull 当前库下的文件下来，然后把这些文件和自己需要的文件结合处理好（本次就是删除这些文件，再把原文件复制回来），重新提交即可。日常推荐这种方法，养成好习惯。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1.移动除 .git 外的文件到另一个目录下</span>
+<span class="c1"># 2.pull 该库当前文件，最后的参数是因为合并两个不相关的项目（即，不知道彼此存在并且提交历史不匹配的项目）时，会发生Git错误：fatal: refusing to merge unrelated histories，此时出现记录文件，先按住 ctrl+:，再输入 wq 即可。</span>
+git pull origin master --allow-unrelated-histories
+<span class="c1"># 3.合并这些文件和第一次移动出去的文件，本次就是删除这些文件，把那些文件移动回来就好了</span>
+<span class="c1"># 4.提交本地</span>
+git add .
+git commit -m <span class="s2">&#34;first commit&#34;</span>
+<span class="c1"># 5.提交远程</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>好了，第一次初始化配置也就成功完成了！输入：https://zz2summer.github.io/ 就可以访问部署的网站了。</p>
+</li>
+</ol>
+<h2 id="七日常操作">七、日常操作</h2>
+<h3 id="1-新建文章">1. 新建文章</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1.新建一篇文章，在网站根目录：H:\HugoWebsite\blog</span>
+hugo new post/第二篇测试博客.md
+<span class="c1"># 2.在目录 H:\HugoWebsite\blog\content\post 下找到对应文件进行修改</span>
+<span class="c1"># 3.本地预览, http://localhost:1313/ </span>
+hugo server -D
+<span class="c1"># 4.构建 Hugo 网站</span>
+hugo
+<span class="c1"># 5.切换到目录 H:\HugoWebsite\blog\public ，提交修改至本地库</span>
+git add .
+git commit -m <span class="s1">&#39;commit info&#39;</span>
+<span class="c1"># 6.将修改推至远程库</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-修改文章">2. 修改文章</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1.当前工作目录：H:\HugoWebsite\blog</span>
+<span class="c1"># 2.在目录 H:\HugoWebsite\blog\content\post 下找到对应文件</span>
+进行修改
+<span class="c1"># 3.本地预览, http://localhost:1313/ </span>
+hugo server -D
+<span class="c1"># 4.构建 Hugo 网站</span>
+hugo
+<span class="c1"># 5.切换到目录 H:\HugoWebsite\blog\public ，提交修改至本地库</span>
+git add .
+git commit -m <span class="s1">&#39;commit info&#39;</span>
+<span class="c1"># 6.将修改推至远程库</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-删除文章">3. 删除文章</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1.当前工作目录：H:\HugoWebsite\blog</span>
+<span class="c1"># 2.删除两处文件</span>
+在目录 H:<span class="se">\H</span>ugoWebsite<span class="se">\b</span>log<span class="se">\c</span>ontent<span class="se">\p</span>ost 、H:<span class="se">\H</span>ugoWebsite<span class="se">\b</span>log<span class="se">\p</span>ublic  下找到对应文件进行删除
+其中 public 下文件不删除也不影响显示，只是该文件就会一直存在，另外该目录下即便文件（除.git<span class="o">)</span>删错或者全部删除也是不影响的，应为 hugo 命令会全部重建
+<span class="c1"># 3.本地预览, http://localhost:1313/ </span>
+hugo server -D
+<span class="c1"># 4.构建 Hugo 网站</span>
+hugo
+<span class="c1"># 5.切换到目录 H:\HugoWebsite\blog\public ，提交修改至本地库</span>
+git add .
+git commit -m <span class="s1">&#39;commit info&#39;</span>
+<span class="c1"># 6.将修改推至远程库</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4添加图片">4.添加图片</h3>
+<p>Hugo 的配置文件和文章中引用图片都是从<code>static</code>作为根目录的。（H:\HugoWebsite\blog\static）</p>
+<p>也就是说首先要将图片放置到 <code>static</code> 文件夹下，以 <code>static</code> 为相对路径，然后进行引用，方式为：<code>![](pic_name.png)</code>，当然这样该 .md 文件中是不会显示，本地预览和部署后是可以看到的</p>
+<p>正常做法：</p>
+<ol>
+<li>写文章时，在该文章目录下新建文件夹存放照片，引用时采用相对路径。</li>
+<li>完成之后，在引用路径前加个 <code>/</code>，比如原来引用方式 <code>![](imgs/pic_name.png)</code> ，需要修改为 <code>![](/imgs/pic_name.png)</code> 。</li>
+<li>之后将该图片文件夹移动到 static 目录下即可。</li>
+</ol>
+<p>注意：如果该文件夹名包含空格可能会不能被显示，支持中文，但是不支持含空格。</p>
+<h3 id="5-图片加水印">5. 图片加水印</h3>
+<ol>
+<li>
+<p>找一份字体放到根目录下（H:\HugoWebsite\blog）。</p>
+<p>（win10自带字体文件目录：C:\Windows\Fonts）</p>
+</li>
+<li>
+<p>创建 watermark.py</p>
+</li>
+<li>
+<p>然后每次写完一篇文章可以运行<code>python watermark.py postname</code>添加水印。</p>
+<p>如果第一次运行要给所有文章添加水印，可以运行<code>python watermark.py all</code>。</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageDraw</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFont</span>
+
+
+<span class="k">def</span> <span class="nf">watermark</span><span class="p">(</span><span class="n">post_name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">post_name</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+        <span class="n">post_name</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+    <span class="n">dir_name</span> <span class="o">=</span> <span class="s1">&#39;static/&#39;</span> <span class="o">+</span> <span class="n">post_name</span> <span class="o">+</span> <span class="s1">&#39;/*&#39;</span>
+    <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">dir_name</span><span class="p">):</span>
+        <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">getbands</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="s1">&#39;arial.ttf&#39;</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">20</span><span class="p">)))</span>
+        <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+        <span class="c1"># draw.text((im.size[0] / 2, im.size[1] / 2), u&#39;@yourname&#39;, fill=(0, 0, 0), font=font)</span>
+        <span class="n">text_size_x</span><span class="p">,</span> <span class="n">text_size_y</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">textsize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;@yourname&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">text_size_x</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">text_size_y</span><span class="p">),</span> <span class="sa">u</span><span class="s1">&#39;@yourname&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">watermark</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[usage] &lt;input&gt;&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="八细节优化">八、细节优化</h2>
+<h3 id="1谷歌分析的配置">1.谷歌分析的配置</h3>
+<ol>
+<li>
+<p>获取 跟踪ID，https://analytics.google.com/</p>
+</li>
+<li>
+<p>添加如下代码到 <code>&lt;head&gt;</code> 标签中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-xxxxxxxxx-x&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+   
+  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-xxxxxxxxx-x&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="2-添加访问计数">2. 添加访问计数</h3>
+<p>参考如下代码，添加到想要加入的位置即可。</p>
+<ol>
+<li>
+<p>显示单页面访问量</p>
+<p>要显示每篇文章的访问量，复制以下代码添加到你需要显示的位置。</p>
+<p>算法：pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_page_pv&#34;</span><span class="p">&gt;</span>
+  本文总阅读量<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_page_pv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>次
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>显示站点总访问量</p>
+<p>要显示站点总访问量，复制以下代码添加到你需要显示的位置。有两种算法可选：</p>
+<p>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_site_pv&#34;</span><span class="p">&gt;</span>
+    本站总访问量<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_site_pv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>次
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_site_uv&#34;</span><span class="p">&gt;</span>
+  本站访客数<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_site_uv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>人次
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>注：本地测试时数据会任意显示，部署后即正常</p>
+<h3 id="3部署脚本">3.部署脚本</h3>
+<p>在目录 H:\HugoWebsite\blog 新建 deploy.sh ，在 Git bash 下运行：<code>sh deploy.sh</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">echo</span> -e <span class="s2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+
+<span class="c1"># Build the project.</span>
+hugo <span class="c1"># if using a theme, replace with hugo -t &lt;YOURTHEME&gt;</span>
+
+<span class="c1"># Go To Public folder</span>
+<span class="nb">cd</span> public
+<span class="c1"># Add changes to git.</span>
+git add .
+
+<span class="c1"># Commit changes.</span>
+<span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;rebuilding site `date` &#34;</span>
+
+<span class="nb">echo</span> -e <span class="s2">&#34;\033[0;32m</span><span class="nv">$msg</span><span class="s2">\033[0m&#34;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">1</span> <span class="o">]</span>
+  <span class="k">then</span> <span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="k">fi</span>
+git commit -m <span class="s2">&#34;</span><span class="nv">$msg</span><span class="s2">&#34;</span>
+
+<span class="c1"># Push source and build repos.</span>
+git push origin master
+
+<span class="c1"># Come Back up to the Project Root</span>
+<span class="nb">cd</span> ..
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-添加网站运行时间">4. 添加网站运行时间</h3>
+<p>在想要添加的位置（基本是 footer 文件）加入以下代码，其中开始运行的时间需要自行修改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">siteTime</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nx">seconds</span> <span class="o">*</span> <span class="mi">60</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">hours</span> <span class="o">=</span> <span class="nx">minutes</span> <span class="o">*</span> <span class="mi">60</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">days</span> <span class="o">=</span> <span class="nx">hours</span> <span class="o">*</span> <span class="mi">24</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">years</span> <span class="o">=</span> <span class="nx">days</span> <span class="o">*</span> <span class="mi">365</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">startYear</span> <span class="o">=</span> <span class="mi">2021</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">startMonth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">startDate</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">startHour</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">startMinute</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">startSecond</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">todayYear</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">todayMonth</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">todayDate</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">todayHour</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">todayMinute</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">todaySecond</span> <span class="o">=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">t1</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">startYear</span><span class="p">,</span> <span class="nx">startMonth</span><span class="p">,</span> <span class="nx">startDate</span><span class="p">,</span> <span class="nx">startHour</span><span class="p">,</span> <span class="nx">startMinute</span><span class="p">,</span> <span class="nx">startSecond</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">t2</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">todayYear</span><span class="p">,</span> <span class="nx">todayMonth</span><span class="p">,</span> <span class="nx">todayDate</span><span class="p">,</span> <span class="nx">todayHour</span><span class="p">,</span> <span class="nx">todayMinute</span><span class="p">,</span> <span class="nx">todaySecond</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">t2</span> <span class="o">-</span> <span class="nx">t1</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">diffYears</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">diff</span> <span class="o">/</span> <span class="nx">years</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">diffDays</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">diff</span> <span class="o">/</span> <span class="nx">days</span><span class="p">)</span> <span class="o">-</span> <span class="nx">diffYears</span> <span class="o">*</span> <span class="mi">365</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">diffHours</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">diff</span> <span class="o">-</span> <span class="p">(</span><span class="nx">diffYears</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">+</span> <span class="nx">diffDays</span><span class="p">)</span> <span class="o">*</span> <span class="nx">days</span><span class="p">)</span> <span class="o">/</span> <span class="nx">hours</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">diffMinutes</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">diff</span> <span class="o">-</span> <span class="p">(</span><span class="nx">diffYears</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">+</span> <span class="nx">diffDays</span><span class="p">)</span> <span class="o">*</span> <span class="nx">days</span> <span class="o">-</span> <span class="nx">diffHours</span> <span class="o">*</span> <span class="nx">hours</span><span class="p">)</span> <span class="o">/</span>
+            <span class="nx">minutes</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">diffSeconds</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">diff</span> <span class="o">-</span> <span class="p">(</span><span class="nx">diffYears</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">+</span> <span class="nx">diffDays</span><span class="p">)</span> <span class="o">*</span> <span class="nx">days</span> <span class="o">-</span> <span class="nx">diffHours</span> <span class="o">*</span> <span class="nx">hours</span> <span class="o">-</span>
+            <span class="nx">diffMinutes</span> <span class="o">*</span> <span class="nx">minutes</span><span class="p">)</span> <span class="o">/</span> <span class="nx">seconds</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">startYear</span> <span class="o">==</span> <span class="nx">todayYear</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//document.getElementById(&#34;year&#34;).innerHTML = todayYear;
+</span><span class="c1"></span>            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;sitetime&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;已安全运行 &#34;</span> <span class="o">+</span> <span class="nx">diffDays</span> <span class="o">+</span> <span class="s2">&#34; 天 &#34;</span> <span class="o">+</span> <span class="nx">diffHours</span> <span class="o">+</span>
+                <span class="s2">&#34; 小时 &#34;</span> <span class="o">+</span> <span class="nx">diffMinutes</span> <span class="o">+</span> <span class="s2">&#34; 分钟 &#34;</span> <span class="o">+</span> <span class="nx">diffSeconds</span> <span class="o">+</span> <span class="s2">&#34; 秒&#34;</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">//document.getElementById(&#34;year&#34;).innerHTML = startYear + &#34; - &#34; + todayYear;
+</span><span class="c1"></span>            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;sitetime&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;已安全运行 &#34;</span> <span class="o">+</span> <span class="nx">diffYears</span> <span class="o">+</span> <span class="s2">&#34; 年 &#34;</span> <span class="o">+</span> <span class="nx">diffDays</span> <span class="o">+</span>
+                <span class="s2">&#34; 天 &#34;</span> <span class="o">+</span> <span class="nx">diffHours</span> <span class="o">+</span> <span class="s2">&#34; 小时 &#34;</span> <span class="o">+</span> <span class="nx">diffMinutes</span> <span class="o">+</span> <span class="s2">&#34; 分钟 &#34;</span> <span class="o">+</span> <span class="nx">diffSeconds</span> <span class="o">+</span> <span class="s2">&#34; 秒&#34;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">setInterval</span><span class="p">(</span><span class="nx">siteTime</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;sitetime&#34;</span><span class="p">&gt;</span>载入运行时间...<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-图片放大功能">5. 图片放大功能</h3>
+<p><strong>方法一：</strong></p>
+<p>部分主题自带了 lightgallery 效果，在配置文件设置为 true 即可。</p>
+<p><strong>方法二：</strong></p>
+<ol>
+<li>
+<p>加载<code>jqury</code>和<code>fancybox</code>文件，在博客文件<code>footer.html</code>中添加下面的文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+   
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在博客文件中需要加载图片的地方插入下面html代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">data-fancybox</span><span class="o">=</span><span class="s">&#34;gallery&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;图片链接&#34;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;图片链接&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="九总结">九、总结</h2>
+<ol>
+<li>
+<p>可以将主题下相关文件复制到 blog 网站根目录下，因为这样可以直接渲染网站效果，而又不影响主题本身的内容。</p>
+<p>主要是 <code>themes\LoveIt\exampleSite</code> 目录下文件</p>
+</li>
+<li>
+<p>发布文章如果有参数 draft ，记得将值设为 false，或者删除 draft，不然会被认定为草稿只能本地运行而不能运行到网站上。</p>
+</li>
+<li>
+<p>基本上就是安装 Hugo ，建站，下载主题，配置主题参数，然后部署就是了。</p>
+</li>
+</ol>
+<h2 id="参考文章">参考文章</h2>
+<p>【1】<a href="https://matteocourthoud.github.io/post/website/" target="_blank" rel="noopener noreffer">How To Build A Personal Website with Hugo | Matteo Courthoud</a></p>
+<p>【2】<a href="https://zhangfelix.medium.com/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-cbd1d57fcfbf" target="_blank" rel="noopener noreffer">使用Hugo和GitHub搭建博客. 折腾了几天博客的框架终于搭建起来了。研究了一番之后，最终还是选择使用Hugo和G… | by Félix | Medium</a></p>
+<p>【3】<a href="https://zhuanlan.zhihu.com/p/57361697" target="_blank" rel="noopener noreffer">如何利用 GitHub Pages 和 Hugo 轻松搭建个人博客？ - 知乎</a></p>
+<p>【4】<a href="https://jdhao.github.io/2018/10/10/hexo_to_hugo/" target="_blank" rel="noopener noreffer">把博客从 Hexo 迁移到 Hugo - jdhao&rsquo;s blog</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-28 13:14:16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-title="Github Pages &#43; Hugo 搭建个人博客" data-hashtags="Hugo,Github,个人博客"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-hashtag="Hugo"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-title="Github Pages &#43; Hugo 搭建个人博客"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-title="Github Pages &#43; Hugo 搭建个人博客" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-title="Github Pages &#43; Hugo 搭建个人博客"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/github/">Github</a>,&nbsp;<a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">渣渣的夏天</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://zz2summer.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

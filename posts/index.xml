@@ -4,19 +4,12 @@
         <link>https://zz2summer.github.io/posts/</link>
         <description>所有文章 | 渣渣的夏天</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>summer2zz@163.com (渣渣的夏天)</managingEditor>
-            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 27 Mar 2021 22:10:38 &#43;0800</lastBuildDate><atom:link href="https://zz2summer.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Test3</title>
-    <link>https://zz2summer.github.io/test3/</link>
-    <pubDate>Sat, 27 Mar 2021 22:10:38 &#43;0800</pubDate>
+            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 28 Mar 2021 13:14:16 &#43;0800</lastBuildDate><atom:link href="https://zz2summer.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Github Pages &#43; Hugo 搭建个人博客</title>
+    <link>https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Sun, 28 Mar 2021 13:14:16 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/test3/</guid>
-    <description><![CDATA[<p>新建</p>]]></description>
-</item><item>
-    <title>Test1</title>
-    <link>https://zz2summer.github.io/test1/</link>
-    <pubDate>Sat, 27 Mar 2021 21:56:51 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://zz2summer.github.io/test1/</guid>
-    <description><![CDATA[<p>新建</p>]]></description>
+    <guid>https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[<p>利用 Hugo + Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。</p>]]></description>
 </item></channel>
 </rss>

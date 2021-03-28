@@ -2,8 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://zz2summer.github.io/categories/cat2/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/categories/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://zz2summer.github.io/categories/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://zz2summer.github.io/en/categories/"
@@ -16,10 +15,11 @@
                     hreflang="zh-cn"
                     href="https://zz2summer.github.io/categories/"
                     /></url><url>
-            <loc>https://zz2summer.github.io/posts/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/tags/tag1/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/tags/tag3/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/tags/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://zz2summer.github.io/tags/github/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/tags/hugo/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/posts/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/tags/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://zz2summer.github.io/en/tags/"
@@ -32,8 +32,9 @@
                     hreflang="zh-cn"
                     href="https://zz2summer.github.io/tags/"
                     /></url><url>
-            <loc>https://zz2summer.github.io/test3/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/</loc><lastmod>2021-03-27T22:10:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://zz2summer.github.io/categories/tools/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zz2summer.github.io/</loc><lastmod>2021-03-28T13:14:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://zz2summer.github.io/en/"
@@ -46,7 +47,4 @@
                     hreflang="zh-cn"
                     href="https://zz2summer.github.io/"
                     /></url><url>
-            <loc>https://zz2summer.github.io/categories/cat1/</loc><lastmod>2021-03-27T21:56:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/tags/tag2/</loc><lastmod>2021-03-27T21:56:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zz2summer.github.io/test1/</loc><lastmod>2021-03-27T21:56:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zz2summer.github.io/about/</loc><lastmod>2021-03-27T21:56:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
