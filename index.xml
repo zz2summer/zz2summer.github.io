@@ -20,5 +20,12 @@
     <author>作者</author>
     <guid>https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[<p>利用 Hugo + Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。</p>]]></description>
+</item><item>
+    <title>软件工程基础 实验1《可行性研究与项目计划》</title>
+    <link>https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C1%E5%8F%AF%E8%A1%8C%E6%80%A7%E7%A0%94%E7%A9%B6%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92/</link>
+    <pubDate>Sun, 04 Aug 2019 18:02:04 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C1%E5%8F%AF%E8%A1%8C%E6%80%A7%E7%A0%94%E7%A9%B6%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92/</guid>
+    <description><![CDATA[<p>本文内容主要是讲解软件项目可行性研究及项目计划的基本原理与方法，利用Visio等工具进行可行性研究和制定项目计划。通过对图书馆管理系统的基本流程进行描述举例。</p>]]></description>
 </item></channel>
 </rss>
