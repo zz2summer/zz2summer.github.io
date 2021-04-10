@@ -595,7 +595,16 @@ $ git config --global http.proxy 127.0.0.1:8580
 
     <div class="post-nav"><a href="/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="Github Pages &#43; Hugo 搭建个人博客"><i class="fas fa-angle-left fa-fw"></i>Github Pages &#43; Hugo 搭建个人博客</a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+(function($){
+    setInterval(() => {
+        $.each($('iframe'), (arr,x) => {
+            let src = $(x).attr('src');
+            if (src && src.match(/(ads-iframe)|(disqusads)/gi)) {
+                $(x).remove();
+            }
+        });
+    }, 300);
+})(jQuery);<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
