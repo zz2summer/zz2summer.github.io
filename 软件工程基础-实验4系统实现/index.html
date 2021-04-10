@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>软件工程基础 实验4《系统实现》 - 渣渣的夏天</title><meta name="Description" content="本文内容主要是讲解软件工程基础中实验四，根据课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）"><meta property="og:title" content="软件工程基础 实验4《系统实现》" />
+<meta property="og:description" content="本文内容主要是讲解软件工程基础中实验四，根据课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-08-04T19:06:55&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-10T21:18:16&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
+
+<meta name="twitter:title" content="软件工程基础 实验4《系统实现》"/>
+<meta name="twitter:description" content="本文内容主要是讲解软件工程基础中实验四，根据课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" /><link rel="prev" href="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C3%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" /><link rel="next" href="https://zz2summer.github.io/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "软件工程基础 实验4《系统实现》",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zz2summer.github.io\/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "软件工程基础, 实验4, 系统实现","wordcount":  4197 ,
+        "url": "https:\/\/zz2summer.github.io\/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0\/","datePublished": "2019-08-04T19:06:55+08:00","dateModified": "2021-04-10T21:18:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "渣渣的夏天"
+            },"description": "本文内容主要是讲解软件工程基础中实验四，根据课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">软件工程基础 实验4《系统实现》</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"><i class="far fa-folder fa-fw"></i>软件工程</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-08-04 19:06:55">2019-08-04 19:06:55</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4197 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#实验4系统实现">实验4《系统实现》</a>
+              <ul>
+                <li><a href="#一实验目的">一、实验目的</a></li>
+                <li><a href="#二实验内容">二、实验内容</a></li>
+                <li><a href="#三实验方法">三、实验方法</a></li>
+                <li><a href="#四实验步骤">四、实验步骤</a></li>
+                <li><a href="#五实验结果">五、实验结果</a></li>
+                <li><a href="#六实验结论">六、实验结论</a></li>
+                <li><a href="#七实验小结">七、实验小结</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本文内容主要是讲解软件工程基础中实验四，根据课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）</p>
+<h4 id="实验4系统实现">实验4《系统实现》</h4>
+<h5 id="一实验目的">一、实验目的</h5>
+<ol>
+<li>掌握：系统实现的有关技术及其相关工具。</li>
+</ol>
+<h5 id="二实验内容">二、实验内容</h5>
+<ol>
+<li>试对图3所示的课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70#pic_center"
+        data-srcset="https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center, https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center 1.5x, https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70#pic_center"
+        title="在这里插入图片描述" /></p>
+<center>图3  类图</center>
+<ol start="2">
+<li>针对某网站，采用selenium或SilkTest或SilkPerformer分别进行功能测试和性能测试。（选做）</li>
+</ol>
+<h5 id="三实验方法">三、实验方法</h5>
+<ol>
+<li>利用pycharm工具，python代码实现该课程管理系统；</li>
+<li>利用python中的doctest和unittest等测试工具对系统中的代码进行测试。</li>
+</ol>
+<h5 id="四实验步骤">四、实验步骤</h5>
+<p>  <strong>4.1 需求说明： 课程管理系统</strong></p>
+<p>  A、管理员：</p>
+<p>  创建老师：姓名、性别、年龄、资产</p>
+<p>  创建课程：课程名称、上课时间、课时费、关联老师</p>
+<p>使用pickle保存在文件</p>
+<p>  B、学生：</p>
+<p>  学生：用户名、密码、性别、年龄、选课列表[]、上课记录</p>
+<p>  1、列举所有课程</p>
+<p>  2、选择课程</p>
+<p>  3、学生上课，</p>
+<p>  4、ret = 课程.work() 获取课程的返回; 资产+=课时费</p>
+<p>  <strong>4.2 代码思路</strong></p>
+<p>  1.类的关联：</p>
+<p>  a、Teacher类：关联管理员，由哪个管理员创建</p>
+<p>  b、 Course类：关联老师对象、管理员对象（注意：关  联的是对象）</p>
+<p>  2.文件的写入：</p>
+<p>  a、管理员文件：写入的是管理员对象（封装管理员的用户名和密码）</p>
+<p>  b、学生文件：写入的是学生对象（封装了学生已选课程列表，已经上过的课程字典：key：课程对象 value：上课信息列表，是列表格式）</p>
+<p>  c、课程列表course_list、老师列表teacher_lis，都是列表格式。</p>
+<p>  <strong>4.3 文件概述</strong></p>
+<p>  bin目录：存放administrator.py文件和students.py文件</p>
+<p>  config目录：存放settings.py文件，即配置文件</p>
+<p>  db目录：存放与数据相关的文件，包括课程列表course_list、老师列表teacher_list、学生文件夹、管理员文件夹</p>
+<p>  lib目录：存放models.py文件，即存放公共的模块</p>
+<p>  log目录：存放日志文件</p>
+<p>  <strong>4.4 代码实现</strong></p>
+<p>  <strong>4.5 代码测试</strong></p>
+<h5 id="五实验结果">五、实验结果</h5>
+<p>  <strong>5.1 利用doctest测试students.py中的登录模块</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    &gt;&gt;&gt; login(&#34;&#34;,&#34;&#34;)
+</span><span class="s2">    用户账号或者密码输入为空
+</span><span class="s2">    &gt;&gt;&gt; login(&#34;a&#34;,&#34;1&#34;)
+</span><span class="s2">    账号或者密码错误
+</span><span class="s2">    &gt;&gt;&gt; login(&#34;a&#34;,&#34;123&#34;)
+</span><span class="s2">    登录成功
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">|</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">pwd</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;用户账号或者密码输入为空&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&#34;123&#34;</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span> <span class="p">):</span>  <span class="c1"># 如果登陆成功</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;登录成功&#34;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;账号或者密码错误&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  <strong>测试结果：</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img-blog.csdnimg.cn/2019080419025187.png"
+        data-srcset="https://img-blog.csdnimg.cn/2019080419025187.png, https://img-blog.csdnimg.cn/2019080419025187.png 1.5x, https://img-blog.csdnimg.cn/2019080419025187.png 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/2019080419025187.png"
+        title="在这里插入图片描述" /></p>
+<p>  结果分析：测试结果显示三个测试均成功通过，在用户登录时该模块能够对用户的输入进行正常判断，比如判空、账号密码核实。</p>
+<p>  <strong>5.2 利用unittest测试modules.py文件中的老师类Teacher</strong>
+  <strong>teacher.py：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    封装老师的相关信息
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">admin</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_admin</span> <span class="o">=</span> <span class="n">admin</span>
+
+    <span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        增加资产
+</span><span class="s2">        :param cost: 增加的数量
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">+=</span> <span class="n">cost</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span>
+
+    <span class="k">def</span> <span class="nf">decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        减少资产
+</span><span class="s2">        :param cost: 减少的数量
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">-=</span> <span class="n">cost</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  <strong>unittestTeacher.py：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">teacher</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">Test_teacher</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;test kick on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">(</span><span class="s2">&#34;张三&#34;</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="s2">&#34;胡主任&#34;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_gain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">gain</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;test gain&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">decrease</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;test decrease&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;test is over&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  <strong>测试结果：</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述" /></p>
+<p>  结果分析：根据结果显示，其中测试中两个通过，一个失败，在用户创建老师类时能够成功创建，增加资产时以初始态0为基础，所以加上15等于15，测试通过，但是减少资产时依旧以0为基础，所以此处减少后为-5，而不等于10，测试未通过。</p>
+<h5 id="六实验结论">六、实验结论</h5>
+<p>  本次实验测试是进行抽样测试，根据不同的测试方式进行不同测试，测试样例、结果和结果分析见第五点显示，通过该实例测试方式可对本程序其余模块进行测试，从而验证所以模块的正确性。</p>
+<p>  根据本次测试结果，可知，对python进行不同方式的测试很有必要，因为测试是提高代码质量和可维护性的一种方式，也是成本最低的一种方式，尽早排除尽可能出现的bug，可以减少在后续阶段解决bug的成本（包括时间成本、人力成本等）。</p>
+<p>  项目源码展示如下：</p>
+<p>  6.1 配置文件settings.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>  <span class="c1">#配置文件的上级目录</span>
+<span class="n">BASE_ADMIN_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span>  <span class="c1">#管理员目录</span>
+<span class="n">BASE_STUDENTS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span> <span class="s2">&#34;students&#34;</span><span class="p">)</span>  <span class="c1">#学生目录</span>
+<span class="n">TEACHER_DB_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span> <span class="s2">&#34;teacher_list&#34;</span><span class="p">)</span> <span class="c1">#老师列表目录</span>
+<span class="n">COURSE_DB_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span> <span class="s2">&#34;course_list&#34;</span><span class="p">)</span>  <span class="c1">#课程列表目录</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  6.2 公共模块modules.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding:utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    封装老师的相关信息
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">admin</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_admin</span> <span class="o">=</span> <span class="n">admin</span>
+ 
+    <span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        增加资产
+</span><span class="s2">        :param cost: 增加的数量
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">+=</span> <span class="n">cost</span>
+ 
+    <span class="k">def</span> <span class="nf">decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        减少资产
+</span><span class="s2">        :param cost: 减少的数量
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__assets</span> <span class="o">-=</span> <span class="n">cost</span>
+ 
+<span class="k">class</span> <span class="nc">Course</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    课程相关信息
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">teacher_obj</span><span class="p">,</span> <span class="n">admin</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_name</span> <span class="o">=</span> <span class="n">course_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">cost</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teacher</span> <span class="o">=</span> <span class="n">teacher_obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_admin</span> <span class="o">=</span> <span class="n">admin</span>
+ 
+    <span class="k">def</span> <span class="nf">have_lesson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        课程上课，自动给相关联的任课老师增加课时费
+</span><span class="s2">        :return: 课程内容返回给上课者
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teacher</span><span class="o">.</span><span class="n">gain</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
+ 
+        <span class="n">content</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="s2">&#34;课程：</span><span class="si">%s</span><span class="s2">；老师：</span><span class="si">%s</span><span class="s2">；内容：</span><span class="si">%d</span><span class="s2">；时间：</span><span class="si">%f</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">course_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">teacher</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">temp</span>
+ 
+    <span class="k">def</span> <span class="nf">absence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        教学事故
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teacher</span><span class="o">.</span><span class="n">decrease</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+ 
+<span class="k">class</span> <span class="nc">Admin</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="bp">None</span>
+ 
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        管理员登陆
+</span><span class="s2">        :param user:
+</span><span class="s2">        :param pwd:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="n">user</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">pwd</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+ 
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        管理员注册
+</span><span class="s2">        :param user:
+</span><span class="s2">        :param pwd:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">pwd</span>
+ 
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_ADMIN_DIR</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span> <span class="c1">#管理员目录</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;xb&#39;</span><span class="p">))</span>     <span class="c1">#将管理员对象写入文件</span>
+ 
+ 
+<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    学生相关信息
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="bp">None</span>
+ 
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">study_dict</span> <span class="o">=</span> <span class="p">{}</span>
+ 
+    <span class="k">def</span> <span class="nf">select_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_obj</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        学生选课
+</span><span class="s2">        :param course_obj:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course_obj</span><span class="p">)</span> <span class="c1">#将课程对象添加进课程列表</span>
+ 
+    <span class="k">def</span> <span class="nf">study</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_obj</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        学生上课
+</span><span class="s2">        :param course_obj:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">class_result</span> <span class="o">=</span> <span class="n">course_obj</span><span class="o">.</span><span class="n">have_lesson</span><span class="p">()</span>  <span class="c1">#获取学生上课信息</span>
+ 
+        <span class="k">if</span> <span class="n">course_obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1">#key：课程对象 value：上课信息列表，是列表格式</span>
+ 
+            <span class="bp">self</span><span class="o">.</span><span class="n">study_dict</span><span class="p">[</span><span class="n">course_obj</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_result</span><span class="p">)</span>  <span class="c1">#将上课信息列表添加进上一次的列表中</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">study_dict</span><span class="p">[</span><span class="n">course_obj</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">class_result</span><span class="p">,</span> <span class="p">]</span>   <span class="c1">#创建该课程对象的键值对</span>
+ 
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        学生登陆
+</span><span class="s2">        :param user:
+</span><span class="s2">        :param pwd:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="n">user</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">pwd</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+ 
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        学生注册
+</span><span class="s2">        :param user:
+</span><span class="s2">        :param pwd:
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">pwd</span>
+ 
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_STUDENTS_DIR</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>  <span class="c1">#学生目录</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;xb&#39;</span><span class="p">))</span> <span class="c1">#将学生对象写入学生目录</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  6.3 管理员文件administrator.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding:utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+ 
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">lib.models</span> <span class="kn">import</span> <span class="o">*</span>
+ 
+<span class="k">def</span> <span class="nf">create_course</span><span class="p">(</span><span class="n">admin_obj</span><span class="p">):</span>
+    <span class="n">teacher_list</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">TEACHER_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>  <span class="c1">#读取老师清单</span>
+    <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">teacher_list</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>                     <span class="c1">#打印老师清单</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">item</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="n">item</span><span class="o">.</span><span class="n">create_time</span><span class="p">,</span><span class="n">item</span><span class="o">.</span><span class="n">create_admin</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">course_list</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1">#创建课程列表</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入课程名称(q退出)：&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入课时费：&#39;</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;选择老师(序号)：&#39;</span><span class="p">)</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Course</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">teacher_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">admin_obj</span><span class="p">)</span>  <span class="c1">#创建课程对象</span>
+        <span class="n">course_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+ 
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">COURSE_DB_DIR</span><span class="p">):</span>  <span class="c1">#如果有课程列表</span>
+        <span class="n">exists_list</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">COURSE_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">course_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">exists_list</span><span class="p">)</span>         <span class="c1">#对原有课程列表进行扩展</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">course_list</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">COURSE_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span>   <span class="c1">#将学生列表写入文件</span>
+ 
+<span class="k">def</span> <span class="nf">create_teacher</span><span class="p">(</span><span class="n">admin_obj</span><span class="p">):</span>
+    <span class="n">teacher_list</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1">#创建老师列表</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">teacher_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入老师姓名(q表示退出)&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">teacher_name</span> <span class="o">==</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">teacher_age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入老师年龄&#39;</span><span class="p">)</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Teacher</span><span class="p">(</span><span class="n">teacher_name</span><span class="p">,</span> <span class="n">teacher_age</span><span class="p">,</span> <span class="n">admin_obj</span><span class="p">)</span>  <span class="c1">#创建老师对象</span>
+        <span class="n">teacher_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">TEACHER_DB_DIR</span><span class="p">):</span>
+        <span class="n">exists_list</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">TEACHER_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">teacher_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">exists_list</span><span class="p">)</span>   <span class="c1">#对原有老师列表进行扩展</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">teacher_list</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">TEACHER_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span>  <span class="c1">#将老师列表写入文件</span>
+ 
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">pwd</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_ADMIN_DIR</span><span class="p">,</span> <span class="n">user</span><span class="p">)):</span>
+        <span class="c1"># 从文件中将管理员对象读取出来（里面封装了用户信息以及提供了登录方法）</span>
+        <span class="n">admin_obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_ADMIN_DIR</span><span class="p">,</span> <span class="n">user</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">admin_obj</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;登录成功&#39;</span><span class="p">)</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">sel</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;1、创建老师；2、创建课程&#34;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">sel</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="n">create_teacher</span><span class="p">(</span><span class="n">admin_obj</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">sel</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+                    <span class="n">create_course</span><span class="p">(</span><span class="n">admin_obj</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">break</span>
+ 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+ 
+<span class="k">def</span> <span class="nf">regiter</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">pwd</span><span class="p">):</span>
+    <span class="n">admin_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Admin</span><span class="p">()</span>
+    <span class="n">admin_obj</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;1、管理员登录；2、管理员注册；</span><span class="se">\n</span><span class="s2"> &gt;&gt;&gt;&#34;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入用户名:&#39;</span><span class="p">)</span>
+    <span class="n">pwd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入密码:&#39;</span><span class="p">)</span>
+ 
+    <span class="k">if</span> <span class="n">inp</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;密码错误&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;用户不存在&#39;</span><span class="p">)</span>
+ 
+    <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+        <span class="n">regiter</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
+ 
+ 
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>  6.4 学生文件students.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding:utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">models</span> 
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">lib.models</span> <span class="kn">import</span>  <span class="n">Course</span>
+<span class="kn">from</span> <span class="nn">lib.models</span> <span class="kn">import</span>  <span class="n">Admin</span>
+<span class="kn">from</span> <span class="nn">lib.models</span> <span class="kn">import</span>  <span class="n">Teacher</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">course_info</span><span class="p">(</span><span class="n">student_obj</span><span class="p">):</span>   <span class="c1">#打印已选课程信息</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">student_obj</span><span class="o">.</span><span class="n">course_list</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">course_name</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">teacher</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">select_course</span><span class="p">(</span><span class="n">student_obj</span><span class="p">):</span>  <span class="c1">#选择课程</span>
+    <span class="n">course_list</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">COURSE_DB_DIR</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>  <span class="c1">#从文件读取课程</span>
+    <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">course_list</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">course_name</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">cost</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">teacher</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1">#打印课程列表</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请选择课程(q退出):&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="s2">&#34;q&#34;</span><span class="p">:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">selected_course_obj</span> <span class="o">=</span> <span class="n">course_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#根据序号选择课程</span>
+        <span class="k">if</span> <span class="n">selected_course_obj</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">student_obj</span><span class="o">.</span><span class="n">course_list</span><span class="p">:</span>
+            <span class="n">student_obj</span><span class="o">.</span><span class="n">course_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">selected_course_obj</span><span class="p">)</span> <span class="c1">#添加进该学生的课程列表</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">student_obj</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_STUDENTS_DIR</span><span class="p">,</span> <span class="n">student_obj</span><span class="o">.</span><span class="n">username</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span><span class="c1">#将学生对象dump进文件，封装学生选课列表，上课字典信息</span>
+ 
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_STUDENTS_DIR</span><span class="p">,</span> <span class="n">user</span><span class="p">)):</span>
+        <span class="n">student_obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_STUDENTS_DIR</span><span class="p">,</span> <span class="n">user</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">student_obj</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">pwd</span><span class="p">):</span>  <span class="c1">#如果登陆成功</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;1、选课；2、上课；3、查看课程信息&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">inp</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="n">select_course</span><span class="p">(</span><span class="n">student_obj</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
+                    <span class="n">course_info</span><span class="p">(</span><span class="n">student_obj</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;密码错误&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;用户不存在&#39;</span><span class="p">)</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Student</span><span class="p">()</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">pwd</span><span class="p">)</span>
+ 
+ 
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;1、登录；2、注册 </span><span class="se">\n</span><span class="s1"> &gt;&gt;&gt;&#39;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;用户名：&#34;</span><span class="p">)</span>
+    <span class="n">pwd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;密码：&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
+        <span class="n">login</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">pwd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">&#34;2&#34;</span><span class="p">:</span>
+        <span class="n">register</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
+ 
+ 
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="七实验小结">七、实验小结</h5>
+<p>  通过本次实验主要是学会了利用python的相关技术对代码进行测试，有doctest、unittest等等，利用这些测试可以极大的优化代码与减少后期的开发成本。</p>
+<p>  实验时最开始遇到的问题是对于实验内容中给出的UML图不知如何进行代码实现，毫无头绪，后来是在独立思考一段时间后以及与同学互相讨论从而进行实验开展。</p>
+<p>  在实验过程中遇到了低级错误，就是进行unittest单元测试时重新写了一个py文件进行测试，然而当时为了明确该文件作用就直接命名为了unittest，在写代码时就一直报错显示unittest没有TestCase等参数，一直运行不了，后来通过百度搜索得知该错误，将文件名更改即解决了。</p>
+<p>  实验中有待改进的地方主要是该项目的代码有待优化，测试样例可以进一步增加。</p>
+<p>参考文章：</p>
+<p>【1】<a href="https://wenku.baidu.com/view/e96d3a66f8c75fbfc77db2ff.html" target="_blank" rel="noopener noreffer">软件工程基础实验 - 百度文库</a></p>
+<p>【2】<a href="https://www.cnblogs.com/ygqygq2/p/6727697.html" target="_blank" rel="noopener noreffer">Python作业-选课系统 - ygqygq2 - 博客园</a></p>
+<p>【3】<a href="https://www.cnblogs.com/wanghzh/p/5560787.html" target="_blank" rel="noopener noreffer">python实现学生选课系统 面向对象的应用： - wangheng1409 - 博客园</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-04-10 21:18:16</span>
+            </div>
+            <div class="post-info-license"><span>CC 4.0 BY-SA</span></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" data-title="软件工程基础 实验4《系统实现》" data-hashtags="软件工程基础,实验4,系统实现"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" data-hashtag="软件工程基础"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" data-title="软件工程基础 实验4《系统实现》"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" data-title="软件工程基础 实验4《系统实现》" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C4%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" data-title="软件工程基础 实验4《系统实现》"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">软件工程基础</a>,&nbsp;<a href="/tags/%E5%AE%9E%E9%AA%8C4/">实验4</a>,&nbsp;<a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/">系统实现</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80-%E5%AE%9E%E9%AA%8C3%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="prev" rel="prev" title="软件工程基础 实验3《系统设计》"><i class="fas fa-angle-left fa-fw"></i>软件工程基础 实验3《系统设计》</a>
+            <a href="/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="next" rel="next" title="Github Pages &#43; Hugo 搭建个人博客">Github Pages &#43; Hugo 搭建个人博客<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">渣渣的夏天</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://zz2summer.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,103 @@
+# 软件工程基础 实验3《系统设计》
+
+
+本文内容主要是讲解软件工程实验三——试针对实验二的培训中心管理系统，试用结构化设计方法对其进行设计，并用Visio绘制其对应的软件结构图。（选做）根据某室内保温系统的描述，试据此对系统进行设计，采用Rational Rose绘制控制器的状态图，同时用顺序图描述锅炉启动过程。
+
+<!--more-->
+
+#### 实验3《系统设计》
+
+##### 一、实验目的
+1. 掌握：结构化数据流设计技术、面向对象设计技术；
+2. 掌握：Visio工具绘制软件结构图；
+3. 掌握：EA或Visio工具绘制UML模型图。
+
+##### 二、实验内容
+1. 试针对实验二的培训中心管理系统，试用结构化设计方法对其进行设计，并用Visio绘制其对应的软件结构图。（选做）
+2. 某室内保温系统的描述如下：
+
+&emsp;&emsp;如果主开关置于“加热”状态，保温系统的控制器负责开关锅炉，监视锅炉系统的燃油流量和燃烧状态，进而调节进入房间的热流量。当室内温度降至（Tr-2）度以下，控制器启动锅炉。这里Tr 是用户设定的理想室温。锅炉启动过程如下：
+
+&emsp;&emsp;（1）控制器向锅炉的马达发送信号；
+
+&emsp;&emsp;（2）控制器监视马达速度。马达达到正常操作速度时，启动点火并打开油阀；
+
+&emsp;&emsp;（3）控制器监视水温， 一旦水温达到预定值， 发信号打开水流循环阀。热水开始在室内循环。
+
+&emsp;&emsp;（4）如果发生异常情况，燃油流量指示器和光感器向控制器发信号。此时控制器发信号关闭系统。
+
+&emsp;&emsp;（5）一旦室内温度达到（Tr-2）度，控制器首先关闭油阀，延迟5秒钟后关闭锅炉马达。
+
+&emsp;&emsp;系统须满足以下限制：
+
+&emsp;&emsp;（1）锅炉停机后重启必须延迟5秒钟；
+
+&emsp;&emsp;（2）在主开关关闭或油阀关闭5秒钟内应指示锅炉停机。
+
+&emsp;&emsp;试据此对系统进行设计，采用Rational Rose绘制控制器的状态图，同时用顺序图描述锅炉启动过程。
+
+##### 三、实验方法
+&emsp;&emsp;本次实验方法主要是利用Visio工具绘制软件结构图、状态图和顺序图；
+
+&emsp;&emsp;实验原理是根据题目要求及图形要求进行绘制；
+
+&emsp;&emsp;实验技术是Visio绘制；
+
+&emsp;&emsp;实验方案是先根据题目要求将题目中的要求标志出来，然后记录所要绘制的图形的注意事项，再进行初稿绘制，初稿绘制完成后进行图形要点检查，最后进行图形展示优化。
+
+##### 四、实验步骤
+&emsp;&emsp;Visio建立软件结构图的基本步骤：
+1. 先添加函数/子例程；
+2. 再添加有条件调用；
+3. 然后添加调用连线；
+4. 最后为调用线添加数据流或标志流。
+
+&emsp;&emsp;Visio建立活动图的基本步骤：
+1. 打开Visio2010工具，选择【文件】→【新建】→【活动图】→【UML活动图】→【创建】，即可创建一个UML活动模板，之后在左侧选择适当图形进行UML活动图绘制；
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185125908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185129479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/201908041851338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  
+
+&emsp;&emsp;Visio建立顺序图的基本步骤同建立活动图。
+##### 五、实验结果
+1. 实验二中的培训中心管理系统的软件结构图如下所示：
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185151876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  
+
+2. 控制器的状态图如下所示：
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185158133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  
+
+3. 锅炉启动过程的顺序图如下所示：
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185205412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+
+  
+
+##### 六、实验结论
+&emsp;&emsp;本次实验主要是对项目进行系统设计，有软件结构图、状态图和顺序图等，通过一系列建模从而对项目实施路程更加了解，更加有利于项目计划开展。
+
+&emsp;&emsp;实验结果的截图见第五点。
+
+##### 七、实验小结
+&emsp;&emsp;给出本次实验的体会，如学会了什么，遇到哪些问题，如何解决这些问题，存在哪些有待改进的地方。
+
+&emsp;&emsp;通过本次实验我主要学会了如何对项目进行系统设计，对系统整体进行抽象，提取出自己所关心的内容，从而有利于项目后续开发。软件架构图主要是展示项目的主要框架，有利于对项目的总体进行分析规划，活动图和顺序图主要是对系统的进一步解析，有利于系统的实际开发。
+
+&emsp;&emsp;实验中遇到的问题主要是对图形的组件不够清楚，通过查阅书籍和网络资料解决，还有就是有一部分内容不能清晰表示，与同学课后交流解决。
+
+&emsp;&emsp;实验存在的不足主要是图形中的关系不够了解，有一些地方可能存在错误。
+
+
+
+参考文章：【1】[软件工程基础实验 - 百度文库](https://wenku.baidu.com/view/e96d3a66f8c75fbfc77db2ff.html)
+
