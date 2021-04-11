@@ -55,11 +55,11 @@
 &emsp;&emsp;Visio建立活动图的基本步骤：
 1. 打开Visio2010工具，选择【文件】→【新建】→【活动图】→【UML活动图】→【创建】，即可创建一个UML活动模板，之后在左侧选择适当图形进行UML活动图绘制；
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185125908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083216.png)
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185129479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083223.png)
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/201908041851338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083230.png)
 
   
 
@@ -67,19 +67,19 @@
 ##### 五、实验结果
 1. 实验二中的培训中心管理系统的软件结构图如下所示：
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185151876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083240.png)
 
   
 
 2. 控制器的状态图如下所示：
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185158133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083246.png)
 
   
 
 3. 锅炉启动过程的顺序图如下所示：
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185205412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083255.png)
 
   
 

@@ -13,7 +13,7 @@
 ##### 二、实验内容
 1. 试对图3所示的课程管理对象类图，采用Java在Eclipse下编码实现，并用JUnit框架对某Java类进行测试。
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804185931307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70#pic_center)
+  ![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083314.png)
 
 
 <center>图3  类图</center>
@@ -106,9 +106,9 @@ if __name__ == '__main__':
 ```
 &emsp;&emsp;**测试结果：**
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804190245598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083326.png)
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019080419025187.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083333.png)
 
 &emsp;&emsp;结果分析：测试结果显示三个测试均成功通过，在用户登录时该模块能够对用户的输入进行正常判断，比如判空、账号密码核实。
 
@@ -172,7 +172,7 @@ if __name__=='__main__':
 ```
 &emsp;&emsp;**测试结果：**
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190804190410742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NTY0NTU1,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://raw.githubusercontent.com/summer2zz/pictures/master/blogs/20210411083346.png)
 
 &emsp;&emsp;结果分析：根据结果显示，其中测试中两个通过，一个失败，在用户创建老师类时能够成功创建，增加资产时以初始态0为基础，所以加上15等于15，测试通过，但是减少资产时依旧以0为基础，所以此处减少后为-5，而不等于10，测试未通过。
 
