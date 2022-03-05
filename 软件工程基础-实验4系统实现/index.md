@@ -5,6 +5,8 @@
 
 <!--more-->
 
+> 版权声明：本文为博主原创文章，遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 版权协议，禁止商用，转载请附上原文出处链接和本声明。
+
 #### 实验4《系统实现》
 
 ##### 一、实验目的

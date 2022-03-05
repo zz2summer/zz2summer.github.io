@@ -5,6 +5,8 @@
 
 <!--more-->
 
+> 版权声明：本文为博主原创文章，遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 版权协议，禁止商用，转载请附上原文出处链接和本声明。
+
 ## 1.下载安装
 
 [clamav](https://www.clamav.net/downloads) 官网下载 [clamav-0.104.2.linux.x86_64.rpm](https://www.clamav.net/downloads/production/clamav-0.104.2.linux.x86_64.rpm)

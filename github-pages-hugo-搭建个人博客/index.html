@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zz2summer.github.io\/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/"
-        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hugo, Github, 个人博客","wordcount":  4833 ,
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hugo, Github, 个人博客","wordcount":  4879 ,
         "url": "https:\/\/zz2summer.github.io\/github-pages-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/","datePublished": "2021-03-28T13:14:16+08:00","dateModified": "2021-03-28T13:14:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
@@ -50,6 +50,25 @@
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="text/javascript">
+        function addLink() {
+            var body_element = document.getElementsByTagName('body')[0];
+            var selection;
+            selection = window.getSelection();
+            var pagelink = "<br />————————————————<br />版权声明：本文为博主「渣渣的夏天」的原创文章，遵循 CC BY-NC-SA 4.0 版权协议，禁止商用，转载请附上原文出处链接和本声明。<br />原文链接：<a href='"+document.location.href+"'>"+document.location.href+"</a><br />";
+            var copy_text = selection + pagelink;
+            var new_div = document.createElement('div');
+            new_div.style.left='-99999px';
+            new_div.style.position='absolute';
+            body_element.appendChild(new_div );
+            new_div.innerHTML = copy_text ;
+            selection.selectAllChildren(new_div );
+            window.setTimeout(function() {
+                body_element.removeChild(new_div );
+            },0);
+        }
+        document.oncopy = addLink;
+        </script> 
     <div class="header-wrapper">
         <div class="header-title">
             <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
@@ -119,7 +138,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Github Pages &#43; Hugo 搭建个人博客</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tools/"><i class="far fa-folder fa-fw"></i>Tools</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-28 13:14:16">2021-03-28 13:14:16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4833 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-28 13:14:16">2021-03-28 13:14:16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4879 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -161,6 +180,9 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>利用 Hugo + Github Page 搭建个人博客，主要流程和配置记录，包含：第一次搭建过程、日常文章操作、谷歌分析、访问计数、部署脚本、网站运行时间等细节优化和部分个人总结。</p>
+<blockquote>
+<p>版权声明：本文为博主原创文章，遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreffer">CC BY-NC-SA 4.0</a> 版权协议，禁止商用，转载请附上原文出处链接和本声明。</p>
+</blockquote>
 <h2 id="零效果">零、效果</h2>
 <p>本次配置最终效果图：</p>
 <p><img
@@ -1072,5 +1094,5 @@ git push origin master
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"zz2summer/hugoblogtalks"}},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"zz2summer/hugoblogtalks"}},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
