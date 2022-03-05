@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linux下杀毒软件clamav离线安装及测试（CentOS7） - 渣渣的夏天</title><meta name="Description" content="渣渣的夏天的博客"><meta property="og:title" content="Linux下杀毒软件clamav离线安装及测试（CentOS7）" />
+<meta property="og:description" content="本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-05T21:03:00&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-05T21:03:00&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Linux下杀毒软件clamav离线安装及测试（CentOS7）"/>
+<meta name="twitter:description" content="本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" /><link rel="prev" href="https://zz2summer.github.io/github-hexo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux下杀毒软件clamav离线安装及测试（CentOS7）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zz2summer.github.io\/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Linux, 杀毒软件, ClamAV0.104.2, 离线安装","wordcount":  464 ,
+        "url": "https:\/\/zz2summer.github.io\/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7\/","datePublished": "2022-03-05T21:03:00+08:00","dateModified": "2022-03-05T21:03:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "渣渣的夏天"
+            },"description": ""
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="渣渣的夏天"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>渣渣的夏天</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linux下杀毒软件clamav离线安装及测试（CentOS7）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="far fa-folder fa-fw"></i>服务器</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-05 21:03:00">2022-03-05 21:03:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 464 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1下载安装">1.下载安装</a></li>
+    <li><a href="#2-配置">2. 配置</a></li>
+    <li><a href="#3-运行">3. 运行</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。</p>
+<h1 id="linux下杀毒软件clamav01042离线安装及测试centos7">Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）</h1>
+<h2 id="1下载安装">1.下载安装</h2>
+<p><a href="https://www.clamav.net/downloads" target="_blank" rel="noopener noreffer">clamav</a> 官网下载 <a href="https://www.clamav.net/downloads/production/clamav-0.104.2.linux.x86_64.rpm" target="_blank" rel="noopener noreffer">clamav-0.104.2.linux.x86_64.rpm</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220202514187.png"
+        data-srcset="/Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220202514187.png, /Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220202514187.png 1.5x, /Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220202514187.png 2x"
+        data-sizes="auto"
+        alt="/Linux下杀毒软件clamav离线安装及测试（CentOS7）/image-20220220202514187.png"
+        title="image-20220220202514187" /></p>
+<p>将该文件上传至服务器，安装命令如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">rpm -ivh --prefix<span class="o">=</span>/usr/local/clamav clamav-0.104.2.linux.x86_64.rpm
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2-配置">2. 配置</h2>
+<ol>
+<li>
+<p>添加用户组和组成员</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">groupadd clamav
+useradd -g clamav clamav
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>创建日志目录和病毒库目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p /usr/local/clamav/logs
+mkdir -p /usr/local/clamav/update
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>创建日志文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">touch /usr/local/clamav/logs/clamd.log
+touch /usr/local/clamav/logs/freshclam.log
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>文件授权</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">chown clamav:clamav /usr/local/clamav/logs/clamd.log
+chown clamav:clamav /usr/local/clamav/logs/freshclam.log
+chown clamav:clamav /usr/local/clamav/update
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cp  /usr/local/clamav/etc/clamd.conf.sample /usr/local/clamav/etc/clamd.conf
+cp /usr/local/clamav/etc/freshclam.conf.sample /usr/local/clamav/etc/freshclam.conf
+</code></pre></td></tr></table>
+</div>
+</div><p>文件1：clamd.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /usr/local/clamav/etc/clamd.conf
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Example　　//注释掉这一行</span>
+<span class="c1">#添加以下内容</span>
+LogFile /usr/local/clamav/logs/clamd.log
+PidFile /usr/local/clamav/update/clamd.pid
+DatabaseDirectory /usr/local/clamav/update
+</code></pre></td></tr></table>
+</div>
+</div><p>文件2：freshclam.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /usr/local/clamav/etc/freshclam.conf
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Example　　//注释掉这一行</span>
+<span class="c1">#添加以下内容</span>
+DatabaseDirectory /usr/local/clamav/update
+UpdateLogFile /usr/local/clamav/logs/freshclam.log
+PidFile /usr/local/clamav/update/freshclam.pid
+</code></pre></td></tr></table>
+</div>
+</div><p>将这两个文件复制一下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cp /usr/local/clamav/etc/*.conf /usr/local/etc/
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="3-运行">3. 运行</h2>
+<ol>
+<li>
+<p>下载病毒库文件并上传到目录 <strong>/usr/local/clamav/update</strong></p>
+<p><a href="http://database.clamav.net/main.cvd" target="_blank" rel="noopener noreffer">main.cvd</a>
+<a href="http://database.clamav.net/daily.cvd" target="_blank" rel="noopener noreffer">daily.cvd</a>
+<a href="http://database.clamav.net/bytecode.cvd" target="_blank" rel="noopener noreffer">bytecode.cvd</a></p>
+<p>注：也可以在有网络的机器上运行如下命令更新病毒库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/usr/local/clamav/bin/freshclam
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>配置库文件路径</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/ld.so.conf
+</code></pre></td></tr></table>
+</div>
+</div><p>追加一行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/usr/local/clamav/lib64
+</code></pre></td></tr></table>
+</div>
+</div><p>更新生效：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ldconfig
+</code></pre></td></tr></table>
+</div>
+</div><p>如果最后运行时仍然报错：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">clamscan: error <span class="k">while</span> loading shared libraries: libclamav.so.9: cannot open shared object file: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><p>则说明配置没有生效。</p>
+</li>
+<li>
+<p>创建命令软件链接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ln -s /usr/local/clamav/bin/clamscan /usr/local/bin/clamscan
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>运行使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">clamscan -r
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220210854780.png"
+        data-srcset="/Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220210854780.png, /Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220210854780.png 1.5x, /Linux%e4%b8%8b%e6%9d%80%e6%af%92%e8%bd%af%e4%bb%b6clamav%e7%a6%bb%e7%ba%bf%e5%ae%89%e8%a3%85%e5%8f%8a%e6%b5%8b%e8%af%95%ef%bc%88CentOS7%ef%bc%89/image-20220220210854780.png 2x"
+        data-sizes="auto"
+        alt="/Linux下杀毒软件clamav离线安装及测试（CentOS7）/image-20220220210854780.png"
+        title="image-20220220210854780" /></p>
+</li>
+<li>
+<p>卸载程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">rpm remove clamav
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-03-05 21:03:00</span>
+            </div>
+            <div class="post-info-license"><span>CC BY-NC-SA 4.0</span></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）" data-hashtags="Linux,杀毒软件,ClamAV0.104.2,离线安装"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6/">杀毒软件</a>,&nbsp;<a href="/tags/clamav0.104.2/">ClamAV0.104.2</a>,&nbsp;<a href="/tags/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/">离线安装</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/github-hexo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="Github &#43; Hexo 搭建个人博客"><i class="fas fa-angle-left fa-fw"></i>Github &#43; Hexo 搭建个人博客</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">渣渣的夏天</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"zz2summer/hugoblogtalks"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
