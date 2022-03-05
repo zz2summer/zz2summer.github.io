@@ -1,11 +1,9 @@
-# Linux下杀毒软件clamav离线安装及测试（CentOS7）
+# Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）
 
 
 本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。
 
 <!--more-->
-
-# Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）
 
 ## 1.下载安装
 

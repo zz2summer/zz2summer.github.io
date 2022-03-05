@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Linux下杀毒软件clamav离线安装及测试（CentOS7） - 渣渣的夏天</title><meta name="Description" content="渣渣的夏天的博客"><meta property="og:title" content="Linux下杀毒软件clamav离线安装及测试（CentOS7）" />
+        <title>Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7） - 渣渣的夏天</title><meta name="Description" content="渣渣的夏天的博客"><meta property="og:title" content="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）" />
 <meta property="og:description" content="本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Linux下杀毒软件clamav离线安装及测试（CentOS7）"/>
+<meta name="twitter:title" content="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）"/>
 <meta name="twitter:description" content="本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,12 +24,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Linux下杀毒软件clamav离线安装及测试（CentOS7）",
+        "headline": "Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zz2summer.github.io\/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7\/"
-        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Linux, 杀毒软件, ClamAV0.104.2, 离线安装","wordcount":  464 ,
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Linux, 杀毒软件, ClamAV0.104.2, 离线安装","wordcount":  425 ,
         "url": "https:\/\/zz2summer.github.io\/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7\/","datePublished": "2022-03-05T21:03:00+08:00","dateModified": "2022-03-05T21:03:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
@@ -117,9 +117,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Linux下杀毒软件clamav离线安装及测试（CentOS7）</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="far fa-folder fa-fw"></i>服务器</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-05 21:03:00">2022-03-05 21:03:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 464 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-05 21:03:00">2022-03-05 21:03:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 425 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -137,7 +137,6 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。</p>
-<h1 id="linux下杀毒软件clamav01042离线安装及测试centos7">Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）</h1>
 <h2 id="1下载安装">1.下载安装</h2>
 <p><a href="https://www.clamav.net/downloads" target="_blank" rel="noopener noreffer">clamav</a> 官网下载 <a href="https://www.clamav.net/downloads/production/clamav-0.104.2.linux.x86_64.rpm" target="_blank" rel="noopener noreffer">clamav-0.104.2.linux.x86_64.rpm</a></p>
 <p><img
@@ -394,7 +393,7 @@ PidFile /usr/local/clamav/update/freshclam.pid
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）" data-hashtags="Linux,杀毒软件,ClamAV0.104.2,离线安装"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）" data-hashtags="Linux,杀毒软件,ClamAV0.104.2,离线安装"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/" data-title="Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
