@@ -4,9 +4,16 @@
         <link>https://zz2summer.github.io/</link>
         <description>渣渣的夏天的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>summer2zz@163.com (渣渣的夏天)</managingEditor>
-            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 05 Mar 2022 22:37:23 &#43;0800</lastBuildDate>
+            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 06 Mar 2022 14:20:27 &#43;0800</lastBuildDate>
             <atom:link href="https://zz2summer.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>LeetCode 之 剑指 Offer 12. 矩阵中的路径 （Java）</title>
+    <link>https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-12.-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84-java/</link>
+    <pubDate>Sun, 06 Mar 2022 14:20:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-12.-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84-java/</guid>
+    <description><![CDATA[<p>LeetCode 之 剑指 Offer 12. 矩阵中的路径（Java），给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>]]></description>
+</item><item>
     <title>LeetCode 之 剑指 Offer 11. 旋转数组的最小数字（Java）</title>
     <link>https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-11.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97java/</link>
     <pubDate>Sat, 05 Mar 2022 22:37:23 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-03.-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97java/</guid>
     <description><![CDATA[<p>LeetCode 之 剑指 Offer 03. 数组中重复的数字（Java），在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。创建重复数组进行遍历判断。</p>]]></description>
-</item><item>
-    <title>Linux下杀毒软件clamav0.104.2离线安装及测试（CentOS7）</title>
-    <link>https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/</link>
-    <pubDate>Sat, 05 Mar 2022 21:03:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://zz2summer.github.io/linux%E4%B8%8B%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6clamav%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E6%B5%8B%E8%AF%95centos7/</guid>
-    <description><![CDATA[<p>本文主要是讲解如何在 Linux 环境下离线安装以及测试杀毒软件 clamav 0.104.2（以CentOS7为例），包括下载安装、配置参数和运行。</p>]]></description>
 </item></channel>
 </rss>
