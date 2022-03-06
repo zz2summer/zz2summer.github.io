@@ -63,7 +63,7 @@ class Solution {
             return true;
         }
         visited[i][j] = true;
-        int[][] dirctions = {{0,1}, {0,-1},{1,0},{-1,0}};
+        int[][] dirctions = { {0,1}, {0,-1},{1,0},{-1,0}};
         boolean result = false;
         for(int[] dir : dirctions){
             int newi = i+dir[0], newj = j+dir[1];
