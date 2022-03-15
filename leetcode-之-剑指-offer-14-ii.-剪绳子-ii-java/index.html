@@ -5,32 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java） - 渣渣的夏天</title><meta name="Description" content="渣渣的夏天的博客"><meta property="og:title" content="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）" />
-<meta property="og:description" content="LeetCode 之 剑指 Offer 13. 机器人的运动范围（Java），地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？" />
+        <title>LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java）  - 渣渣的夏天</title><meta name="Description" content="渣渣的夏天的博客"><meta property="og:title" content="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） " />
+<meta property="og:description" content="LeetCode 之 剑指 Offer 14- II. 剪绳子 II （Java） ，给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-13T21:44:39&#43;08:00" />
-<meta property="article:modified_time" content="2022-03-13T21:44:39&#43;08:00" />
+<meta property="og:url" content="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-15T10:07:22&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-15T10:07:22&#43;08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
 
-<meta name="twitter:title" content="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）"/>
-<meta name="twitter:description" content="LeetCode 之 剑指 Offer 13. 机器人的运动范围（Java），地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？"/>
+<meta name="twitter:title" content="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） "/>
+<meta name="twitter:description" content="LeetCode 之 剑指 Offer 14- II. 剪绳子 II （Java） ，给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" /><link rel="prev" href="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-12.-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84-java/" /><link rel="next" href="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-i.-%E5%89%AA%E7%BB%B3%E5%AD%90-java/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" /><link rel="prev" href="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-i.-%E5%89%AA%E7%BB%B3%E5%AD%90-java/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）",
+        "headline": "LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） ",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zz2summer.github.io\/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java\/"
-        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "LeetCode, Java, 回溯, 机器人运动范围","wordcount":  994 ,
-        "url": "https:\/\/zz2summer.github.io\/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java\/","datePublished": "2022-03-13T21:44:39+08:00","dateModified": "2022-03-13T21:44:39+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zz2summer.github.io\/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "LeetCode, Java, 动态规划, 贪婪, 剪绳子","wordcount":  1023 ,
+        "url": "https:\/\/zz2summer.github.io\/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java\/","datePublished": "2022-03-15T10:07:22+08:00","dateModified": "2022-03-15T10:07:22+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "渣渣的夏天","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -75,7 +75,7 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" selected>简体中文</option></select>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" selected>简体中文</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
@@ -122,7 +122,7 @@
                 </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" selected>简体中文</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" selected>简体中文</option></select>
                 </a></div>
     </div>
 </header>
@@ -136,10 +136,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） </h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/leetcode/"><i class="far fa-folder fa-fw"></i>LeetCode</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-13 21:44:39">2022-03-13 21:44:39</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 994 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-15 10:07:22">2022-03-15 10:07:22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1023 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -151,60 +151,74 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#一题目">一、题目</a></li>
-    <li><a href="#二解题思路">二、解题思路</a></li>
-    <li><a href="#三代码">三、代码</a></li>
+    <li><a href="#二解题思路">二、解题思路</a>
+      <ul>
+        <li><a href="#1动态规划">1.动态规划</a></li>
+        <li><a href="#2贪婪算法">2.贪婪算法</a></li>
+      </ul>
+    </li>
+    <li><a href="#三代码">三、代码</a>
+      <ul>
+        <li><a href="#31-动态规划">3.1 动态规划</a></li>
+        <li><a href="#32-贪婪算法">3.2 贪婪算法</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>LeetCode 之 剑指 Offer 13. 机器人的运动范围（Java），地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？</p>
+            </div><div class="content" id="content"><p>LeetCode 之 剑指 Offer 14- II. 剪绳子 II （Java） ，给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1] </code>。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
 <blockquote>
 <p>版权声明：本文为博主原创文章，遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreffer">CC BY-NC-SA 4.0</a> 版权协议，禁止商用，转载请附上原文出处链接和本声明。</p>
 </blockquote>
 <h2 id="一题目">一、题目</h2>
-<p><a href="https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/" target="_blank" rel="noopener noreffer">剑指 Offer 13. 机器人的运动范围</a></p>
-<p>地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？</p>
+<p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/" target="_blank" rel="noopener noreffer">剑指 Offer 14- II. 剪绳子 II</a></p>
+<p>给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1] </code>。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+<p>答案需要取模 <code>1e9+7（1000000007）</code>，如计算初始结果为：<code>1000000008</code>，请返回 1。</p>
 <p>示例 1：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">输入：m <span class="o">=</span> 2, <span class="nv">n</span> <span class="o">=</span> 3, <span class="nv">k</span> <span class="o">=</span> <span class="m">1</span>
-输出：3
+<pre class="chroma"><code class="language-bash" data-lang="bash">输入: <span class="m">2</span>
+输出: <span class="m">1</span>
+解释: <span class="nv">2</span> <span class="o">=</span> <span class="m">1</span> + 1, <span class="m">1</span> × <span class="nv">1</span> <span class="o">=</span> <span class="m">1</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>示例 2：</p>
+</div><p>示例 2:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">输入：m <span class="o">=</span> 3, <span class="nv">n</span> <span class="o">=</span> 1, <span class="nv">k</span> <span class="o">=</span> <span class="m">0</span>
-输出：1
+<pre class="chroma"><code class="language-bash" data-lang="bash">输入: <span class="m">10</span>
+输出: <span class="m">36</span>
+解释: <span class="nv">10</span> <span class="o">=</span> <span class="m">3</span> + <span class="m">3</span> + 4, <span class="m">3</span> × <span class="m">3</span> × <span class="nv">4</span> <span class="o">=</span> <span class="m">36</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>提示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> &lt;<span class="o">=</span> n,m &lt;<span class="o">=</span> <span class="m">100</span>
-<span class="m">0</span> &lt;<span class="o">=</span> k &lt;<span class="o">=</span> <span class="m">20</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">2</span> &lt;<span class="o">=</span> n &lt;<span class="o">=</span> <span class="m">1000</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof
+链接：https://leetcode-cn.com/problems/jian-sheng-zi-lcof
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <h2 id="二解题思路">二、解题思路</h2>
-<p>  本题与上一题的矩阵路径很相似，感觉还简单些，就是起点是 [0, 0]，判断当前点能够进入然后再遍历四周的点，每次移动到四周点时再将该点作为起点即可。</p>
-<p>  三个细节：</p>
-<p>  一是判断进入函数，根据题目提示的 m, n 范围可以直接当做三位数取位数和计算 check 能够进入（不确定位数的则可以用 while 不断遍历截取）；</p>
-<p>  二是对于每次点向四周移动时应该有一个 visited 二维数组记录是否来过，如果来过就不再过去了；</p>
-<p>  三是计算总格子时是当前格子加上四周能够继续进入的格子数，所以在进入当前点时应该 ans++ ，然后再加上四周新进入的点。</p>
+<p>  这道题主要是将 n 的范围扩大了，然后结果可能越界需要取模，进而代码方面会有些改动。</p>
+<h3 id="1动态规划">1.动态规划</h3>
+<p>  方法是一样的，但是需要用到大数操作——<code>java.math.BigInteger</code>，初始化、相乘、取最大值和最后的取余这四处地方需要修改。（此时的 Math.max 已不适用与取模后做比较了）</p>
+<h3 id="2贪婪算法">2.贪婪算法</h3>
+<p>  思路同原题，主要是在求 3^n^ 时要不断的取余防止溢出。</p>
 <h2 id="三代码">三、代码</h2>
+<h3 id="31-动态规划">3.1 动态规划</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -236,45 +250,84 @@
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">cuttingRope</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 3.1 DP
+</span><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">&lt;</span><span class="n">2</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="n">2</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="n">3</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">2</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// n=2,3 具有特殊性，单独时必须至少剪一刀，所以f(2)=1,f(3)=2，但是放到剪的两侧时其实最大为2,3，所以动态公式从 4 开始，f(n)=Max(f(i)*f(n-i)) (n&gt;3,i&lt;=n/2)
+</span><span class="c1"></span>        <span class="n">BigInteger</span><span class="o">[]</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">m</span><span class="o">[</span><span class="n">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+        <span class="n">m</span><span class="o">[</span><span class="n">3</span><span class="o">]</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">3</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">4</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">1</span><span class="o">;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">i</span><span class="o">/</span><span class="n">2</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+                <span class="c1">// m[i] 缓存遍历 j 时前面所有的剪法的最大值，直到最后为所有分法的最大值，Math.max已不适用
+</span><span class="c1"></span>                <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">max</span><span class="o">(</span><span class="n">m</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">multiply</span><span class="o">(</span><span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">]));</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">m</span><span class="o">[</span><span class="n">n</span><span class="o">].</span><span class="na">mod</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">1000000007</span><span class="o">)).</span><span class="na">intValue</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="32-贪婪算法">3.2 贪婪算法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">movingCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="n">ans</span> <span class="o">+=</span> <span class="n">move</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">%</span><span class="n">10</span> <span class="o">+</span> <span class="n">i</span><span class="o">/</span><span class="n">10</span><span class="o">%</span><span class="n">10</span> <span class="o">+</span> <span class="n">i</span><span class="o">/</span><span class="n">100</span> <span class="o">+</span> <span class="n">j</span><span class="o">%</span><span class="n">10</span> <span class="o">+</span> <span class="n">j</span><span class="o">/</span><span class="n">10</span><span class="o">%</span><span class="n">10</span> <span class="o">+</span> <span class="n">j</span><span class="o">/</span><span class="n">100</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">){</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">cuttingRope</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 3.2 贪婪
+</span><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">&lt;</span><span class="n">2</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
         <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">move</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">visited</span><span class="o">,</span> <span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">,</span> <span class="n">k</span><span class="o">)){</span>
-            <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">1</span><span class="o">;</span>
-            <span class="n">ans</span><span class="o">++;</span>
-            <span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="n">0</span><span class="o">,</span><span class="n">1</span><span class="o">},</span> <span class="o">{</span><span class="n">0</span><span class="o">,-</span><span class="n">1</span><span class="o">},</span> <span class="o">{-</span><span class="n">1</span><span class="o">,</span><span class="n">0</span><span class="o">},</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span><span class="n">0</span><span class="o">}};</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">){</span>
-                <span class="kt">int</span> <span class="n">newi</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">dir</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
-                <span class="kt">int</span> <span class="n">newj</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="n">dir</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">newi</span><span class="o">&gt;=</span><span class="n">0</span><span class="o">&amp;&amp;</span><span class="n">newi</span><span class="o">&lt;</span><span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">newj</span><span class="o">&gt;=</span><span class="n">0</span><span class="o">&amp;&amp;</span><span class="n">newj</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">visited</span><span class="o">[</span><span class="n">newi</span><span class="o">][</span><span class="n">newj</span><span class="o">]==</span><span class="n">0</span><span class="o">){</span>
-                    <span class="n">ans</span> <span class="o">+=</span> <span class="n">move</span><span class="o">(</span><span class="n">newi</span><span class="o">,</span> <span class="n">newj</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>  
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="n">2</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
         <span class="o">}</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="n">3</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">2</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">long</span> <span class="n">p</span> <span class="o">=</span> <span class="n">1000000007</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">n</span><span class="o">&gt;</span><span class="n">4</span><span class="o">){</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">3</span> <span class="o">%</span> <span class="n">p</span><span class="o">;</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="n">3</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">res</span> <span class="o">*</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -283,27 +336,26 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-03-13 21:44:39</span>
+                <span>更新于 2022-03-15 10:07:22</span>
             </div>
             <div class="post-info-license"><span>CC BY-NC-SA 4.0</span></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" data-title="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）" data-via="home" data-hashtags="LeetCode,Java,回溯,机器人运动范围"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" data-hashtag="LeetCode"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" data-title="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" data-title="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-13.-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4-java/" data-title="LeetCode 之 剑指 Offer 13. 机器人的运动范围 （Java）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" data-title="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） " data-via="home" data-hashtags="LeetCode,Java,动态规划,贪婪,剪绳子"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" data-hashtag="LeetCode"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" data-title="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） "><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" data-title="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） "><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-ii.-%E5%89%AA%E7%BB%B3%E5%AD%90-ii-java/" data-title="LeetCode 之 剑指 Offer 14  II. 剪绳子 II （Java） "><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>,&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/">机器人运动范围</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>,&nbsp;<a href="/tags/%E8%B4%AA%E5%A9%AA/">贪婪</a>,&nbsp;<a href="/tags/%E5%89%AA%E7%BB%B3%E5%AD%90/">剪绳子</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-12.-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84-java/" class="prev" rel="prev" title="LeetCode 之 剑指 Offer 12. 矩阵中的路径 （Java）"><i class="fas fa-angle-left fa-fw"></i>LeetCode 之 剑指 Offer 12. 矩阵中的路径 （Java）</a>
-            <a href="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-i.-%E5%89%AA%E7%BB%B3%E5%AD%90-java/" class="next" rel="next" title="LeetCode 之 剑指 Offer 14  I. 剪绳子 （Java） ">LeetCode 之 剑指 Offer 14  I. 剪绳子 （Java） <i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/leetcode-%E4%B9%8B-%E5%89%91%E6%8C%87-offer-14-i.-%E5%89%AA%E7%BB%B3%E5%AD%90-java/" class="prev" rel="prev" title="LeetCode 之 剑指 Offer 14  I. 剪绳子 （Java） "><i class="fas fa-angle-left fa-fw"></i>LeetCode 之 剑指 Offer 14  I. 剪绳子 （Java） </a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
